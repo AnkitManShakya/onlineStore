@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CollectionPreview from "../../components/collection-preview/CollectionPreview";
 import SHOP_DATA from "./shop.data";
 
@@ -7,7 +7,7 @@ const Shop = () => {
   return (
     <div className="shop-page">
       {collections.map((collection) => (
-        <CollectionPreview key={collections.id} {...collection} />
+        <CollectionPreview key={collection.id} {...collection} />
       ))}
     </div>
   );
