@@ -2,6 +2,8 @@ import "./CheckoutPage.scss";
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../redux/ducks/cart";
+import CheckoutItem from "../../components/checkout-item/CheckoutItem";
+import StripeButton from "../../components/stripe-button/StripeButton";
 
 const CheckoutPage = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -25,8 +27,11 @@ const CheckoutPage = () => {
           <span>Remove</span>
         </div>
       </div>
-      {cartItems.map((cartItem) => cartItem.name)}
+      {cartItems.map((cartItem) => (
+        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+      ))}
       <div className="total">TOTAL: ${cartTotal}</div>
+      <StripeButton price={cartTotal} />
     </div>
   );
 };

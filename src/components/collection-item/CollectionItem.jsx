@@ -4,7 +4,7 @@ import "./CollectionItem.scss";
 import { addCartItem } from "../../redux/ducks/cart";
 import { useDispatch } from "react-redux";
 
-const CollectionItem = (item) => {
+const CollectionItem = ({ item }) => {
   const { name, price, imageUrl } = item;
   const dispatch = useDispatch();
   return (
